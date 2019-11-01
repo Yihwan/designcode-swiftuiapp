@@ -9,32 +9,61 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isShown = false
+    @State var viewState = CGSize.zero
+    
     var body: some View {
         ZStack {
             TitleView()
-                .blur(radius: 20)
+                .blur(radius: isShown ? 20 : 0)
+                .animation(.default)
             
             CardBottomView()
-                .blur(radius: 20)
+                .blur(radius: isShown ? 20 : 0)
+                .animation(.default)
             
             CardView()
-                .offset(x: 0, y: -40)
+                .background(isShown ? Color.red : Color.blue)
+                .cornerRadius(10)
+                .shadow(radius: 20)
+                .offset(x: viewState.width, y: viewState.height)
                 .scaleEffect(0.85)
-                .rotationEffect(Angle(degrees: 15))
-                .rotation3DEffect(Angle(degrees: 50), axis: (x: 10.0, y: 10.0, z: 10.0))
+                .offset(x: 0, y: isShown ? -40 : -20)
+                .rotationEffect(Angle(degrees: isShown ? 15 : 0))
                 .blendMode(.hardLight)
+                .animation(.easeInOut(duration: 0.7))
             
             CardView()
-                .offset(x: 0, y: -20)
+                .background(isShown ? Color.red : Color.blue)
+                .cornerRadius(10)
+                .shadow(radius: 20)
+                .offset(x: viewState.width, y: viewState.height)
                 .scaleEffect(0.9)
-                .rotationEffect(Angle(degrees: 10))
-                .rotation3DEffect(Angle(degrees: 40), axis: (x: 10.0, y: 10.0, z: 10.0))
+                .offset(x: 0, y: isShown ? -20 : -10)
+                .rotationEffect(Angle(degrees: isShown ? 10 : 0))
                 .blendMode(.hardLight)
+                .animation(.easeInOut(duration: 0.5))
             
             CertificateView()
                 .scaleEffect(0.95)
-                .rotationEffect(Angle(degrees: 5))
-                .rotation3DEffect(Angle(degrees: 30), axis: (x: 10.0, y: 10.0, z: 10.0))
+                .rotationEffect(Angle(degrees: isShown ? 5 : 0))
+                .animation(.spring())
+                .offset(x: viewState.width, y: viewState.height)
+                .onTapGesture {
+                    self.isShown.toggle()
+                }
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            self.viewState = value.translation
+                            self.isShown = true
+                        }
+                    .onEnded { value in
+                        self.viewState = CGSize.zero
+                        self.isShown = false 
+                    }
+                )
+            
         }
     }
 }
@@ -51,9 +80,6 @@ struct CardView: View {
             Text("Card Back")
         }
         .frame(width: 340, height: 220)
-        .background(Color.blue)
-        .cornerRadius(10)
-        .shadow(radius: 20)
     }
 }
 
