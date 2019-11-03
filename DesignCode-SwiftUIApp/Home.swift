@@ -14,16 +14,19 @@ struct Home : View {
     
     var body: some View {
         ZStack {
+            HomeList()
+                .blur(radius: show ? 20 : 0)
+                .scaleEffect(showProfile ? 0.95 : 1)
+                .animation(.default)
             
             ContentView()
-                .background(Color.white)
                 .cornerRadius(30)
                 .shadow(radius: 20)
                 .animation(.spring())
                 .offset(y: showProfile ? 40 : UIScreen.main.bounds.height)
             
             MenuButton(show: $show)
-                .offset(x: -30, y: showProfile ? 0 : 80)
+                .offset(x: -36, y: showProfile ? 0 : 80)
                 .animation(.spring())
             
             MenuRight(show: $showProfile)
