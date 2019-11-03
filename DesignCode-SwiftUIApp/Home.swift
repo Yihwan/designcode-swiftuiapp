@@ -11,6 +11,7 @@ import SwiftUI
 struct Home : View {
     @State var show = false
     @State var showProfile = false
+    @State var showNotifications = false
     
     var body: some View {
         ZStack {
@@ -25,11 +26,17 @@ struct Home : View {
                 .animation(.spring())
                 .offset(y: showProfile ? 40 : UIScreen.main.bounds.height)
             
+            UpdateList()
+                .cornerRadius(30)
+                .shadow(radius: 20)
+                .animation(.spring())
+                .offset(y: showNotifications ? 0 : UIScreen.main.bounds.height)
+            
             MenuButton(show: $show)
                 .offset(x: -36, y: showProfile ? 0 : 80)
                 .animation(.spring())
             
-            MenuRight(show: $showProfile)
+            MenuRight(showProfile: $showProfile, showNotifications: $showNotifications)
                 .offset(x: -16, y: showProfile ? 0 : 88)
                 .animation(.spring())
             
@@ -92,7 +99,7 @@ struct MenuView : View {
         .padding(.top, 20)
         .padding(30)
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(Color.white)
+        .background(BlurView(style: .systemMaterial))
         .cornerRadius(30)
         .padding(.trailing, 60)
         .shadow(radius: 20)
@@ -110,10 +117,10 @@ struct CircleButton : View {
     var body: some View {
         return HStack {
             Image(systemName: icon)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
         }
         .frame(width: 44, height: 44)
-        .background(Color.white)
+        .background(BlurView(style: .systemThickMaterial))
         .cornerRadius(30)
         .shadow(color: Color("buttonShadow"), radius: 10, x: 0, y: 10)
 }
@@ -128,11 +135,11 @@ struct MenuButton : View {
                     HStack {
                         Spacer()
                         Image(systemName: "list.dash")
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                     }
                     .padding(.trailing, 20)
                     .frame(width: 90, height: 60)
-                    .background(Color.white)
+                    .background(BlurView(style: .systemThickMaterial))
                     .cornerRadius(30)
                     .shadow(color: Color("buttonShadow"), radius: 10, x: 0, y: 10)
                 }
@@ -144,15 +151,17 @@ struct MenuButton : View {
 }
 
 struct MenuRight : View {
-    @Binding var show : Bool
+    @Binding var showProfile : Bool
+    @Binding var showNotifications : Bool
+    
     var body: some View {
         return VStack {
             HStack(spacing: 12) {
                 Spacer()
-                Button(action: { self.show.toggle() }) {
+                Button(action: { self.showProfile.toggle() }) {
                     CircleButton(icon: "person.crop.circle")
                 }
-                Button(action: { self.show.toggle() }) {
+                Button(action: { self.showNotifications.toggle() }) {
                     CircleButton(icon: "bell")
                 }
             }

@@ -15,6 +15,9 @@
 		C745C2A12366641C005B65A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C745C2A02366641C005B65A4 /* Preview Assets.xcassets */; };
 		C745C2A42366641C005B65A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C745C2A22366641C005B65A4 /* LaunchScreen.storyboard */; };
 		C7777C8E236E84CE00B33CCE /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7777C8D236E84CE00B33CCE /* UpdateDetail.swift */; };
+		C7A1AFC3236EBC6C00941079 /* UpdateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1AFC2236EBC6C00941079 /* UpdateStore.swift */; };
+		C7A1AFC5236EC27A00941079 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1AFC4236EC27A00941079 /* TabBar.swift */; };
+		C7A1AFC7236ECA0400941079 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1AFC6236ECA0400941079 /* Settings.swift */; };
 		C7A5BAE4236BE10D00645EF8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5BAE3236BE10D00645EF8 /* Home.swift */; };
 		C7D85E52236C241400D4BA66 /* HomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D85E51236C241400D4BA66 /* HomeList.swift */; };
 		C7D85E54236C31F800D4BA66 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D85E53236C31F800D4BA66 /* BlurView.swift */; };
@@ -32,6 +35,9 @@
 		C745C2A32366641C005B65A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C745C2A52366641C005B65A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7777C8D236E84CE00B33CCE /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
+		C7A1AFC2236EBC6C00941079 /* UpdateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStore.swift; sourceTree = "<group>"; };
+		C7A1AFC4236EC27A00941079 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		C7A1AFC6236ECA0400941079 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C7A5BAE3236BE10D00645EF8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		C7D85E51236C241400D4BA66 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 		C7D85E53236C31F800D4BA66 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -70,13 +76,16 @@
 			children = (
 				C745C2942366641A005B65A4 /* AppDelegate.swift */,
 				C745C2962366641A005B65A4 /* SceneDelegate.swift */,
+				C7A1AFC4236EC27A00941079 /* TabBar.swift */,
 				C745C29B2366641A005B65A4 /* ContentView.swift */,
 				C7A5BAE3236BE10D00645EF8 /* Home.swift */,
 				C7D85E53236C31F800D4BA66 /* BlurView.swift */,
 				C7D85E51236C241400D4BA66 /* HomeList.swift */,
 				C745C29D2366641C005B65A4 /* Assets.xcassets */,
-				C7D85E55236C39AE00D4BA66 /* UpdateList.swift */,
 				C7777C8D236E84CE00B33CCE /* UpdateDetail.swift */,
+				C7D85E55236C39AE00D4BA66 /* UpdateList.swift */,
+				C7A1AFC2236EBC6C00941079 /* UpdateStore.swift */,
+				C7A1AFC6236ECA0400941079 /* Settings.swift */,
 				C745C2A22366641C005B65A4 /* LaunchScreen.storyboard */,
 				C745C2A52366641C005B65A4 /* Info.plist */,
 				C745C2982366641A005B65A4 /* DesignCode_SwiftUIApp.xcdatamodeld */,
@@ -170,7 +179,10 @@
 				C7D85E56236C39AE00D4BA66 /* UpdateList.swift in Sources */,
 				C745C2952366641A005B65A4 /* AppDelegate.swift in Sources */,
 				C745C29A2366641A005B65A4 /* DesignCode_SwiftUIApp.xcdatamodeld in Sources */,
+				C7A1AFC7236ECA0400941079 /* Settings.swift in Sources */,
+				C7A1AFC3236EBC6C00941079 /* UpdateStore.swift in Sources */,
 				C7A5BAE4236BE10D00645EF8 /* Home.swift in Sources */,
+				C7A1AFC5236EC27A00941079 /* TabBar.swift in Sources */,
 				C745C29C2366641A005B65A4 /* ContentView.swift in Sources */,
 				C745C2972366641A005B65A4 /* SceneDelegate.swift in Sources */,
 			);
